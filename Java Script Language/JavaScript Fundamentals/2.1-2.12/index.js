@@ -60,7 +60,7 @@
 
 let convertToNumber="this on conversion to number will show Nan";
 convertToNumber=Number(convertToNumber);  
-console.log( convertToNumber); // NaN     //conversion failed
+// console.log( convertToNumber); // NaN     //conversion failed
 //Numeric conversion
 // Value	        Becomes…
 // undefined	    NaN
@@ -80,3 +80,40 @@ console.log( convertToNumber); // NaN     //conversion failed
 // 0, null, undefined, NaN, ""	    false
 // any other value	                true
 
+  /*  ---------------------------------------------------- 2.9 ---------------------------------------------------------------------- */
+//comparison of different types
+  // console.log('0000001'==1);  //true
+
+  // //equal vs Strictly Equal
+  // console.log('1'==1);  //true  checking equality with type conversion
+  // console.log('1'===1);  //false  without type conversion
+
+  // //null vs undefined
+  // console.log(null==undefined);  //true      special rule these two are like sweet couple only works for them
+  // console.log(null===undefined); //false  false because different type
+
+  // // in case of  < , > , <= , >= null changes to 0 and undefuned changes to NaN
+  // //that's why
+  // console.log(null>0);  //false because null converted to 0 and now this statment is saying 0>0
+  // console.log(null==0); //false cause null and 0 are different
+  // console.log(null>=0); // true
+  // in == undefined and null are equal to each other and not equal to anything else
+  //NOTE: undefined comparison to any no. id false undefined is converted to NaN
+
+/*  ---------------------------------------------------- 2.10 ---------------------------------------------------------------------- */
+
+//falsy values "" , null , undefined, NaN are all assumed to be false under boolean conditions
+//rest are truthy
+if(!("" && NaN && undefined && null)){
+  console.log("All False");
+}
+//shortcut 
+true && console.log("short cut");
+
+/*  ---------------------------------------------------- 2.12 ---------------------------------------------------------------------- */
+// ?? operator is nullish coalescing
+// a statement is defined if it's neither null nor undefined
+// let nullish='user defined';
+// console.log(nullish ?? 'Anonymous');  //Anonymous
+
+//NOTE for loop has inline variable
