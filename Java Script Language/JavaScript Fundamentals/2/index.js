@@ -104,3 +104,49 @@ fnCopy=function(){
 
 };
 console.log(sayHi.length+" "+fnCopy.length);
+
+//callback Functions     (basically function (callback fn) inside another functions argument s)
+function ask(question , yes, no){
+    if(question=="yes") yes();
+    else no();
+}
+function yes(){
+    console.log("yes callback was triggered");
+}
+function no(){
+    console.log("No callback was triggered");
+}
+
+ask("yes",yes,no);
+
+//function declaration vs Functional Expression
+ //declaration exist the moment it s created  , you can call this function anywhere within the Lexical scope.
+ //eexpression function can only be called after initialization before that function doesn't exist in memory
+ expression();             //reference error called epression before initialization
+ const expression=function(){
+     console.log("Function Expression");
+ }
+ expression();
+
+ //Another special feature of Function Declarations is their block scope.
+// In strict mode, when a Function Declaration is within a code block,
+//  it’s visible everywhere inside that block. But not outside of it.
+let age=19;
+if(age<=20){
+    function welcome(){
+        console.log("Inside a block");
+    }
+}
+welcome();  //error
+
+
+/*----------------------------------------------------- 2.16 ----------------------------------------------------------------------*/
+//Arrow Functions
+//another way for function expression
+let arrow=(arg1,arg2,arg3)=>{
+    return expression
+}
+//if only one parameter parenthesis are optional , but in case of more or 0 They are necessary
+let arr=a1=>{
+
+}
