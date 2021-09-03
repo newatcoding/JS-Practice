@@ -148,5 +148,5 @@ let arrow=(arg1,arg2,arg3)=>{
 }
 //if only one parameter parenthesis are optional , but in case of more or 0 They are necessary
 let arr=a1=>{
-
+    console.log(a1);
 }
