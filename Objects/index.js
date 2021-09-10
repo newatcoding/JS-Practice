@@ -106,3 +106,14 @@
 // user1.sizes.width++;
 // console.log(user1.sizes.width+" "+clone2.sizes.width);                 // 'sizes' object are the same in both objects above 
 
+
+ /*  ---------------------------------------------------- 4.6 ---------------------------------------------------------------------- */
+  //optional Chaining
+//The optional chaining ?. stops the evaluation if the value before ?. is undefined or null and returns undefined.
+  let user={}
+
+//   console.log(user.name.val);      //error type error
+console.log(user.name?.val);        //checks whatever comes before '?' is not undefined or null if it does then it just gives undef or null 
+
+//reason of usage is , non existence od error which is always better
+//  user1?.name will give error , variable before ? must be declared

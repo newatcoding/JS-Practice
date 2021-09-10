@@ -34,3 +34,4 @@ function BigUser() {
   }
   
   console.log( new SmallUser().name );
+
