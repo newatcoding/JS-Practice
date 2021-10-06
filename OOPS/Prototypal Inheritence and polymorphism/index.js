@@ -42,6 +42,7 @@ function extend(Child,Parent){
 
 // const sq=new Square(10);
 extend(Square,Shape);
+
 //METHOD OVERRIDING
 
 Square.prototype.duplicate= function(){
