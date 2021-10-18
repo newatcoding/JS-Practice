@@ -178,3 +178,27 @@ Promise.race([
 
 
 //there is also promise.reject or promise.resolve && promise.reject
+
+
+
+  // <-------------------------------------------------------------------11.6------------------------------------------------------------->
+//Promisification -> conversion of a function that accepts a callback into a function that returns a promise
+function loadScript(src, callback) {
+  let script = document.createElement('script');
+  script.src = src;
+
+  script.onload = () => callback(null, script);
+  script.onerror = () => callback(new Error(`Script load error for ${src}`));
+
+  document.head.append(script);
+}
+
+//converting to promise
+let loadScriptPromise = function(src) {
+  return new Promise((resolve, reject) => {
+    loadScript(src, (err, script) => {
+      if (err) reject(err);
+      else resolve(script);
+    });
+  });
+};
