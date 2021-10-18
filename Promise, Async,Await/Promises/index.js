@@ -81,3 +81,100 @@ new Promise(function(resolve,reject){
     console.log(result);
     return result*2;
 });
+
+//bigger example
+//fetch returns a promise which is called a response
+// fetch('/article/promise-chaining/user.json')
+//   // Load it as json
+//   .then(response => response.json())
+//   // Make a request to GitHub
+//   .then(user => fetch(`https://api.github.com/users/${user.name}`))
+//   // Load the response as json
+//   .then(response => response.json())
+//   // Show the avatar image (githubUser.avatar_url) for 3 seconds (maybe animate it)
+//   .then(githubUser => {
+//     let img = document.createElement('img');
+//     img.src = githubUser.avatar_url;
+//     img.className = "promise-avatar-example";
+//     document.body.append(img);
+
+//     setTimeout(() => img.remove(), 3000); // (*)
+//   });
+
+
+// <-------------------------------------------------------------------11.4------------------------------------------------------------->
+        //Error Handling
+
+  //Implicit try catch if any exception happens .catch() takes it
+  // new Promise(function(res,rej){
+  //   throw new Error("Woops");
+  // }).catch(alert);
+
+  // //rethrowing
+  // new Promise(function(res,rej){
+  //   throw new Error("Woops");
+  // }).catch(alert).then(()=>{
+  //     console.log("coninuing with our work")
+  // })
+
+  // <-------------------------------------------------------------------11.5------------------------------------------------------------->
+              //Promise API
+
+  //--> Promise.all
+
+  // let promise = Promise.all([...promises]);
+  //above code is much better and faster than using a loop to run all promises
+
+  Promise.all([ new Promise(res => setTimeout(()=>res(1),3000)),
+                new Promise(res => setTimeout(()=>res(2),2000)),
+                new Promise(res => setTimeout(()=>res(3),1000))]).then(console.log);
+//better that using loop and the doing all promises
+
+//if any one promise is rejected in promise.all the all are rejected
+
+
+//--> Promise.allSettled
+//if any one request is failed it just gives the rest
+
+let urls = [
+  'https://api.github.com/users/iliakan',
+  'https://api.github.com/users/remy',
+  'https://no-such-url'
+];
+
+Promise.allSettled(urls.map(url => fetch(url)))
+  .then(results => { // (*)
+    results.forEach((result, num) => {
+      if (result.status == "fulfilled") {
+        console.log(`${urls[num]}: ${result.value.status}`);
+      }
+      if (result.status == "rejected") {
+        console.log(`${urls[num]}: ${result.reason}`);
+      }
+    });
+  });
+
+  
+  //--> promise.race
+// waits for the first promise to settle, and its result/error becomes the outcome.
+//  basically it is a race , whoever gives fastest settled answer wins
+//it will give first settled answer (all error will be left alone)
+//
+Promise.race([
+  new Promise((resolve, reject) => setTimeout(() => resolve("1 won"), 1000)),
+  new Promise((resolve, reject) => setTimeout(() => resolve("2 won"), 2000)),
+  new Promise((resolve, reject) => setTimeout(() => resolve("3 won"), 3000))
+]).then(console.log); // 1
+
+
+//--> promise.any
+//same as promise.race but waits for first fullfilled promise 
+//If all of the given promises are rejected, AggregateError becomes the error of Promise.any.
+// Promise.any([
+//   new Promise((resolve, reject) => setTimeout(() => reject(new Error("Whoops!")), 1000)),
+//   new Promise((resolve, reject) => setTimeout(() => resolve(1), 2000)),
+//   new Promise((resolve, reject) => setTimeout(() => resolve(3), 3000))
+// ]).then(console.log); // 1
+
+
+//there is also promise.reject or promise.resolve && promise.reject
