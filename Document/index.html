@@ -1,0 +1,43 @@
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+    div {
+        min-width: 100px;
+        min-height: 100px;
+        padding: 30px;
+        border: 1px solid black;
+    }
+
+    </style>
+    <!-- script tag can be inserted almost anywhere in html code -->
+    <!-- attribute like type(text/javascript)  and language is not used anymore type is now used for modules  -->
+    <!-- if src is set then anything inside the tag is skipped -->
+    <script src="index.js" defer>
+        alert('I will not work bcause src is here');
+    </script>
+</head>
+<body id="test" something="non- standard attribute">
+    <input id="input" type="checkbox" checked> checkbox
+    <div id="div" style="color:red;font-size:120%">Hello</div>
+    <div id="grandparent">
+        <p>Hello</p>
+    </div>
+    <div id="ele">
+        <p>Select element with id</p>
+    </div>
+    <h1>Contents</h1>
+
+    <div class="contents">
+    <ul class="book">
+        <li class="chapter">Chapter 1</li>
+        <li class="chapter">Chapter 1</li>
+    </ul>
+    </div>
+</body>
+</html>
