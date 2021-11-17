@@ -7,16 +7,19 @@
     <title>Document</title>
 
     <style>
-    div {
-        min-width: 100px;
-        min-height: 100px;
-        padding: 30px;
-        border: 1px solid black;
-    }
-    #ele{
-        overflow: auto;
-    }
-
+        body *{
+            margin: 10px;
+         border: 1px solid blue;
+        }
+        div {
+            min-width: 100px;
+            min-height: 100px;
+            padding: 30px;
+            border: 1px solid black;
+        }
+        #ele{
+            overflow: auto;
+        }
     </style>
     <!-- script tag can be inserted almost anywhere in html code -->
     <!-- attribute like type(text/javascript)  and language is not used anymore type is now used for modules  -->
@@ -26,21 +29,17 @@
     </script>
 </head>
 <body id="test" something="non- standard attribute">
-    <input id="input" type="checkbox" checked> checkbox
-    <div id="div" style="color:red;font-size:120%">Hello</div>
-    <div id="grandparent">
-        <p>Hello</p>
-    </div>
-    <div id="ele">
-        <p>Select element with id</p>
-    </div>
-    <h1>Contents</h1>
+    <!-- <form onclick="console.log('form')">FORM
+        <div onclick="console.log('div')">DIV
+          <p onclick="console.log('p')">P</p>
+        </div>
+    </form>
+    <button onclick="event.stopPropagation()">Click me</button> -->
 
-    <div class="contents">
-    <ul class="book">
-        <li class="chapter">Chapter 1</li>
-        <li class="chapter">Chapter 1</li>
-    </ul>
-    </div>
+    <form >FORM
+        <div >DIV
+          <p>P</p>
+        </div>
+    </form>
 </body>
 </html>

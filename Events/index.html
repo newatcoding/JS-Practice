@@ -7,16 +7,19 @@
     <title>Document</title>
 
     <style>
-    div {
-        min-width: 100px;
-        min-height: 100px;
-        padding: 30px;
-        border: 1px solid black;
-    }
-    #ele{
-        overflow: auto;
-    }
-
+        body *{
+            margin: 10px;
+        border: 1px solid blue;
+        }
+        div {
+            min-width: 100px;
+            min-height: 100px;
+            padding: 30px;
+            border: 1px solid black;
+        }
+        #ele{
+            overflow: auto;
+        }
     </style>
     <!-- script tag can be inserted almost anywhere in html code -->
     <!-- attribute like type(text/javascript)  and language is not used anymore type is now used for modules  -->
@@ -31,16 +34,7 @@
     <div id="grandparent">
         <p>Hello</p>
     </div>
-    <div id="ele">
-        <p>Select element with id</p>
-    </div>
-    <h1>Contents</h1>
-
-    <div class="contents">
-    <ul class="book">
-        <li class="chapter">Chapter 1</li>
-        <li class="chapter">Chapter 1</li>
-    </ul>
-    </div>
+    <input value="Click me" onclick="console.log('Click!')" type="button">
+    <input value="loop me" onclick="countRabbits()" type="button">
 </body>
 </html>
